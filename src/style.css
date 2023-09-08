@@ -4,15 +4,15 @@ body {
     font-size: 18px;
     margin: 0;
     padding: 0;
-    background-image: url('bgimg.jpg'); /* Add a background image */
+    background-image: url(''); /* Add a background image */
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 header {
     text-align: center;
-    background-color: rgba(0, 122, 204, 0.8); /* Semi-transparent blue background */
-    color: white;
+    background-color: rgba(223, 187, 187, 0.733); /* Semi-transparent blue background */
+    color: rgb(97, 76, 76);
     padding: 20px;
     transition: background-color 0.3s ease; /* Add transition for smooth color change */
     position: sticky;
