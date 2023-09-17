@@ -1,95 +1,302 @@
-
+/* Custom styles here */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(''); /* Add a background image */
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: linear-gradient(to right, #ff8383, #da80a8);
 }
 
-header {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header.hero {
+    background: linear-gradient(to right, #ff8383, #da80a8);
+    color: rgb(61, 43, 43);
     text-align: center;
-    background-color: rgba(223, 187, 187, 0.733); /* Semi-transparent blue background */
-    color: rgb(97, 76, 76);
-    padding: 20px;
-    transition: background-color 0.3s ease; /* Add transition for smooth color change */
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 40px 0;
 }
 
-header h1 {
-    font-size: 48px; /* Larger font size */
-    margin: 0;
-    font-family: 'Arial', sans-serif; /* Custom font */
+.contact-icons {
+    font-size: 30px; /* Adjust icon font size */
+    color: #eb8c8c; /* Customize icon color */
 }
 
-.social-icons {
-    margin-top: 20px;
-}
-
-.social-icons a {
-    font-size: 24px;
-    color: white;
-    margin: 0 10px;
+.contact-icons a {
+    margin-right: 20px; /* Add space between icons */
     text-decoration: none;
-    transition: color 0.3s ease; /* Add transition for icon color change */
 }
 
-.social-icons a:hover {
-    color: #ff6600; /* Change icon color on hover */
-}
-header a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
-    margin-top: 10px;
+/* Add hover effect to social icons if desired */
+.contact-icons a:hover {
+    color: #302828; /* Change color on hover */
 }
 
-main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    padding: 20px;
-}
 
-.box {
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.rounded-square {
+    width: 400px;
+    height: 400px;
+    border: 2px linear-gradient(to right, #c04040, #da80a8);
     border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rounded-square img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0); /* Stop at the center */
+    }
+    100% {
+        transform: translateX(0); /* Stay at the center */
+    }
+}
+
+.animate-slide {
+    animation: slideIn 2s ease forwards;
+}
+
+.profile-name {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 20px 0;
+    font-family: 'Montagu Slab', serif;
+}
+
+#cursor {
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #000;
+    }
+}
+
+
+
+
+
+
+.profile-location {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+main.container {
+    background: linear-gradient(to right, #eb6262, #e67aaa);
     padding: 20px;
-    transition: transform 0.2s ease; /* Add transition for hover effect */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(49, 31, 31, 0.61);
 }
 
-.box:hover {
-    transform: scale(1.05); /* Enlarge box on hover */
+h2.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 30px;
 }
 
-h2 {
-    color: #007acc;
+p.about-description {
+    font-size: 18px;
+    line-height: 1.6;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.education-item,
+.experience-item,
+.skills ul,
+.certifications ul,
+.project {
+    margin-top: 20px;
+    padding-left: 20px;
+    position: relative;
 }
 
-ul li {
+.education-item::before,
+.experience-item::before,
+.skills ul::before,
+.certifications ul::before,
+.project::before {
+    content: '\f105';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 3px;
+}
+
+.education-item h3,
+.experience-item h3,
+.skills li,
+.certifications li,
+.project h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+/* Add this CSS for styling */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.left,
+.right {
+    width: 100%;
+}
+
+.experience-card {
+    background: linear-gradient(to right, #ff9898, #ebabc8);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.experience-card h3 {
+    font-size: 16px;
+    font-weight: bold;
     margin-bottom: 5px;
 }
 
-.fa {
-    margin-right: 10px;
+.experience-card p {
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
-.fa-github, .fa-linkedin, .fa-instagram {
-    color: #007acc;
-    transition: color 0.3s ease; /* Add transition for icon color change */
+.experience-card ul {
+    font-size: 14px;
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
-.fa-github:hover, .fa-linkedin:hover, .fa-instagram:hover {
-    color: #005185; /* Change icon color on hover */
+.experience-card:hover {
+    transform: translateY(-5px);
+    background-color: #d60000;
+    box-shadow: 0 8px 12px rgba(179, 76, 76, 0.1);
+}
+.education-item p,
+.experience-item p,
+.certifications li,
+.project p {
+    font-size: 16px;
+    margin-left: 30px;
+}
+
+/* Style for Education Cards */
+.education-item {
+    margin-top: 20px;
+}
+
+.card-color {
+    background: linear-gradient(to right, #ff9898, #ebabc8);
+}
+
+
+.card {
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Add hover effect if desired */
+.card:hover {
+    transform: translateY(-5px);
+    background-color: #666262;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.achivements-card {
+    background-color: linear-gradient(to right, #ff9898, #ebabc8);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.achivements-card img {
+    max-width: 250px; /* Adjust the image size as needed */
+    margin-bottom: 10px;
+}
+
+.achivements-details {
+    text-align: center;
+}
+
+.achivements-details h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+
+.certification-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.certification-card {
+    background-color: linear-gradient(to right, #ff9898, #ebabc8);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+    max-width: calc(50% - 10px); /* Adjust the width of the cards as needed */
+    box-sizing: border-box;
+}
+
+.certification-card img {
+    max-width: 100%; /* Ensure the image fits within the card */
+    margin-bottom: 10px;
+}
+
+
+.skills ul,
+.certifications ul {
+    list-style: none;
+    padding-left: 30px;
+}
+
+footer.footer {
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff8383, #da80a8);
+    color: rgb(49, 29, 29);
+    padding: 10px 0;
 }

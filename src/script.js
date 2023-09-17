@@ -1,30 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const boxes = document.querySelectorAll(".box");
+const textArray = ["I Am Manthan Sharma", " Data Science Enthusiast "];
+const typingSpeed = 150;
+const erasingSpeed = 150;
 
-    boxes.forEach((box) => {
-        box.addEventListener("mouseenter", function () {
-            box.style.boxShadow = "0 8px 16px 0 rgba(0, 0, 0, 0.4)";
-        });
+const typingTextElement = document.getElementById("typing-text");
 
-        box.addEventListener("mouseleave", function () {
-            box.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2)";
-        });
-    });
+function typeText(index) {
+    const text = textArray[index];
+    let currentIndex = 0;
 
-    // Smooth scrolling for anchor links
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    
-    anchorLinks.forEach((link) => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = link.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop,
-                    behavior: "smooth",
-                });
-            }
-        });
-    });
+    function typeCharacter() {
+        if (currentIndex < text.length) {
+            typingTextElement.textContent += text[currentIndex];
+            currentIndex++;
+            setTimeout(typeCharacter, typingSpeed);
+        } else {
+            setTimeout(eraseText, typingSpeed * 2);
+        }
+    }
+
+    function eraseText() {
+        const textLength = typingTextElement.textContent.length;
+        if (textLength > 0) {
+            const displayedText = text.substring(0, textLength - 1);
+            typingTextElement.textContent = displayedText;
+            setTimeout(eraseText, erasingSpeed);
+        } else {
+            const nextIndex = (index + 1) % textArray.length;
+            setTimeout(() => typeText(nextIndex), erasingSpeed);
+        }
+    }
+
+    // Start typing animation
+    typeCharacter();
+}
+
+// Start the typing animation when the page loads
+window.addEventListener("load", () => {
+    setTimeout(typeText, 0, 0); // Start typing immediately
 });
